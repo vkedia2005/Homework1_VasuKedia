@@ -14,7 +14,8 @@ package edu.arizona.ece373.hw1;
  */
 public class Matrix {
 
-    // TODO: declare the private field `data` holding a two-dimensional array of int.
+    private int[][] data;
+
 
     /**
      * Creates a matrix of the given size whose cells are all zero.
@@ -24,9 +25,11 @@ public class Matrix {
      * @throws IllegalArgumentException if {@code rows} or {@code columns} is less than 1
      */
     public Matrix(int rows, int columns) {
-        // TODO: check that rows >= 1 and columns >= 1 (IllegalArgumentException otherwise),
-        // TODO: then allocate the array field with that many rows and columns.
-        throw new UnsupportedOperationException("TODO");
+        if (rows < 1 || columns < 1) {
+            throw new IllegalArgumentException(
+                    "Matrix must be at least 1x1, got " + rows + "x" + columns);
+        }
+        this.data = new int[rows][columns];
     }
 
     /**
@@ -37,9 +40,24 @@ public class Matrix {
      *                                  columns, has a {@code null} row, or is jagged
      */
     public Matrix(int[][] data) {
-        // TODO: validate the argument (not null, at least 1 row, at least 1 column,
-        // TODO: every row the same length) and store it in the field.
-        throw new UnsupportedOperationException("TODO");
+        if (data == null) {
+            throw new IllegalArgumentException("Matrix data must not be null");
+        }
+        if (data.length == 0) {
+            throw new IllegalArgumentException("Matrix data must have at least one row");
+        }
+        if (data[0] == null || data[0].length == 0) {
+            throw new IllegalArgumentException("Matrix data must have at least one column");
+        }
+        for (int r = 0; r < data.length; r++) {
+            if (data[r] == null || data[r].length != data[0].length) {
+                throw new IllegalArgumentException("Row " + r + " is null or has the wrong length");
+            }
+        }
+        this.data = new int[data.length][];
+        for (int r = 0; r < data.length; r++) {
+            this.data[r] = data[r].clone();
+        }
     }
 
     /**
@@ -48,8 +66,7 @@ public class Matrix {
      * @return the current values, {@code result[row][column]}
      */
     public int[][] getData() {
-        // TODO: return the cells. Think about whether you hand out the field itself or a copy.
-        throw new UnsupportedOperationException("TODO");
+        return data;
     }
 
     /**
@@ -61,8 +78,21 @@ public class Matrix {
      * @throws IllegalArgumentException if {@code data} is not a legal matrix body
      */
     public void setData(int[][] data) {
-        // TODO: validate exactly like the array constructor, then store.
-        throw new UnsupportedOperationException("TODO");
+        if (data == null) {
+            throw new IllegalArgumentException("Matrix data must not be null");
+        }
+        if (data.length == 0) {
+            throw new IllegalArgumentException("Matrix data must have at least one row");
+        }
+        if (data[0] == null || data[0].length == 0) {
+            throw new IllegalArgumentException("Matrix data must have at least one column");
+        }
+        for (int r = 0; r < data.length; r++) {
+            if (data[r] == null || data[r].length != data[0].length) {
+                throw new IllegalArgumentException("Row " + r + " is null or has the wrong length");
+            }
+        }
+        this.data = data;
     }
 
     /**
@@ -71,8 +101,7 @@ public class Matrix {
      * @return the row count, always at least 1
      */
     public int getRows() {
-        // TODO: return the number of rows.
-        throw new UnsupportedOperationException("TODO");
+        return data.length;
     }
 
     /**
@@ -81,8 +110,7 @@ public class Matrix {
      * @return the column count, always at least 1
      */
     public int getColumns() {
-        // TODO: return the number of columns.
-        throw new UnsupportedOperationException("TODO");
+        return data[0].length;
     }
 
     /**
@@ -94,8 +122,10 @@ public class Matrix {
      * @throws IndexOutOfBoundsException if the coordinate is outside the matrix
      */
     public int get(int row, int column) {
-        // TODO: bounds-check the coordinate and return the cell.
-        throw new UnsupportedOperationException("TODO");
+        if (row < 0 || row >= getRows() || column < 0 || column >= getColumns()) {
+            throw new IndexOutOfBoundsException("(" + row + ", " + column + ") is outside the matrix");
+        }
+        return data[row][column];
     }
 
     /**
@@ -107,7 +137,10 @@ public class Matrix {
      * @throws IndexOutOfBoundsException if the coordinate is outside the matrix
      */
     public void set(int row, int column, int value) {
-        // TODO: bounds-check the coordinate and write the cell.
-        throw new UnsupportedOperationException("TODO");
+        if (row < 0 || row >= getRows() || column < 0 || column >= getColumns()) {
+            throw new IndexOutOfBoundsException(
+                    "(" + row + ", " + column + ") is outside the matrix");
+        }
+        data[row][column] = value;
     }
 }

@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c190f84e-86d6-4216-b818-cc60c4987606" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/BoolMatrixPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/BoolMatrixPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/GameOfLife.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/GameOfLife.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/MatrixOutlinePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/MatrixOutlinePrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/MatrixPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/MatrixPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/arizona/ece373/hw1/Shape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
