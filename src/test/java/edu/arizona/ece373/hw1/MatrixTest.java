@@ -1,6 +1,6 @@
 //------------------------------------------------------
 // Homework 1
-// Written by: (your name and student ID)
+// Written by: Vasu Kedia 23778601
 // ECE 373 Object-Oriented Software Design, Section 001 - Fall 2026
 // The University of Arizona
 //------------------------------------------------------
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * Tests for {@link Matrix} (Task 1).
@@ -53,18 +54,28 @@ class MatrixTest {
     }
 
     @Test
-    @Disabled("TODO: remove this annotation once you have written the test")
     @DisplayName("getData returns the values that were passed to the constructor")
     void getDataReturnsTheStoredValues() {
-        // TODO: build a matrix from an int[][] you write out by hand, then check with
-        // TODO: assertArrayEquals that getData() gives those values back.
+        int[][] values = {
+                {1, 2, 3},
+                {4, 5, 6},
+        };
+        Matrix matrix = new Matrix(values);
+        assertArrayEquals(values, matrix.getData());
     }
 
     @Test
-    @Disabled("TODO: remove this annotation once you have written the test")
     @DisplayName("setData replaces the contents of the matrix")
     void setDataReplacesContents() {
-        // TODO: create a matrix, call setData with a different array, and check that
-        // TODO: getRows, getColumns and getData all reflect the new array.
+        Matrix matrix = new Matrix(2, 2);
+        int[][] replacement = {
+                {1, 0, 1, 0},
+                {0, 1, 0, 1},
+                {1, 1, 0, 0},
+        };
+        matrix.setData(replacement);
+        assertEquals(3, matrix.getRows());
+        assertEquals(4, matrix.getColumns());
+        assertArrayEquals(replacement, matrix.getData());
     }
 }
