@@ -29,6 +29,18 @@ public class GameOfLife extends Matrix {
     /** Value of a cell that is dead. */
     public static final int DEAD = 0;
 
+    /** Generations main runs when no argument is given. */
+    private static final int DEFAULT_GENERATIONS = 20;
+
+    /** Side length of the square field used by main. */
+    private static final int DEMO_SIZE = 12;
+
+    /** Row and column where main places the glider. */
+    private static final int GLIDER_POSITION = 5;
+
+    /** Pause between frames of the animation, in milliseconds. */
+    private static final long FRAME_DELAY_MS = 200;
+
     /**
      * Creates an empty game field of the given size; every cell starts dead.
      *
@@ -130,21 +142,21 @@ public class GameOfLife extends Matrix {
      * @throws InterruptedException if the animation is interrupted while sleeping between frames
      */
     public static void main(String[] args) throws InterruptedException {
-        int generations = 20;
+        int generations = DEFAULT_GENERATIONS;
         if (args.length > 0) {
             generations = Integer.parseInt(args[0]);
         }
 
-        GameOfLife game = new GameOfLife(12, 12);
+        GameOfLife game = new GameOfLife(DEMO_SIZE, DEMO_SIZE);
         game.addShape(Shape.blinker(), 1, 1);
-        game.addShape(Shape.glider(), 5, 5);
+        game.addShape(Shape.glider(), GLIDER_POSITION, GLIDER_POSITION);
 
         MatrixPrinter printer = new BoolMatrixPrinter();
         for (int generation = 0; generation < generations; generation++) {
             System.out.println("Generation " + generation + ":");
             System.out.print(printer.print(game));
             game.step();
-            Thread.sleep(200);
+            Thread.sleep(FRAME_DELAY_MS);
         }
     }
 }

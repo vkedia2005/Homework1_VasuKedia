@@ -14,6 +14,7 @@ package edu.arizona.ece373.hw1;
  */
 public class Shape extends Matrix {
 
+    /** The name of this shape, never null or blank. */
     private String name;
     /**
      * Creates a named shape from a pattern of zeroes and ones.

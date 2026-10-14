@@ -14,6 +14,7 @@ package edu.arizona.ece373.hw1;
  */
 public class Matrix {
 
+    /** The cells of this matrix, indexed data[row][column]. */
     private int[][] data;
 
 
@@ -121,7 +122,7 @@ public class Matrix {
      * @return the value stored in that cell
      * @throws IndexOutOfBoundsException if the coordinate is outside the matrix
      */
-    public int get(int row, int column) {
+    public int get(final int row, final int column) {
         if (row < 0 || row >= getRows() || column < 0 || column >= getColumns()) {
             throw new IndexOutOfBoundsException("(" + row + ", " + column + ") is outside the matrix");
         }
