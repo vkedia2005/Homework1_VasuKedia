@@ -93,17 +93,23 @@ class GameOfLifeTest {
     }
 
     @Test
-    @Disabled("TODO: remove this annotation once you have written the test")
     @DisplayName("a still life does not change")
     void stillLifeDoesNotChange() {
-        // TODO: place a Beehive or a Boat on a field big enough that it does not touch the edge,
-        // TODO: remember the printed field, run a few steps, and check that nothing changed.
+        GameOfLife field = new GameOfLife(8, 8);
+        field.addShape(Shape.beehive(), 2, 2);
+        String before = printer.print(field);
+        for (int i = 0; i < 5; i++) {
+            field.step();
+        }
+        assertEquals(before, printer.print(field));
     }
 
     @Test
-    @Disabled("TODO: remove this annotation once you have written the test")
     @DisplayName("a lone live cell dies of underpopulation")
     void loneCellDies() {
-        // TODO: switch a single cell on, call step once, and check that the field is empty.
+        GameOfLife field = new GameOfLife(5, 5);
+        field.set(2, 2, GameOfLife.ALIVE);
+        field.step();
+        assertEquals(printer.print(new GameOfLife(5, 5)), printer.print(field));
     }
 }
