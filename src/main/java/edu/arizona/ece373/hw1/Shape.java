@@ -81,7 +81,7 @@ public class Shape extends Matrix {
      * @return a new boat shape
      */
     public static Shape boat() {
-        return new Shape("boat", new int[][] {
+        return new Shape("Boat", new int[][] {
                 {1, 1, 0},
                 {1, 0, 1},
                 {0, 1, 0},
